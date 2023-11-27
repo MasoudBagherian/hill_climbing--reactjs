@@ -12,8 +12,21 @@ export const PuzzleContext = createContext({
   resetNums: () => {},
 });
 export const hInfo = [
-  { id: 1, heuristic: h1, title: "h1 function", name: "h1" },
-  { id: 2, heuristic: h2, title: "h2 function", name: "h2" },
+  {
+    id: 1,
+    heuristic: h1,
+    title: "h1 function",
+    name: "h1",
+    description: "The number of cells that are not in correct position.",
+  },
+  {
+    id: 2,
+    heuristic: h2,
+    title: "h2 function",
+    name: "h2",
+    description:
+      'The sum of the distances of each cell from it\'s correct position ("Manhattan distance").',
+  },
 ];
 export function findHeuristicById(id) {
   return hInfo.find((item) => item.id === id);

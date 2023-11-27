@@ -3,6 +3,8 @@ import InputPuzzle from "../components/InputPuzzle";
 import { PuzzleContext } from "../contexts/puzzleContext/PuzzleContextProvider";
 import { useNavigate } from "react-router-dom";
 import HeuristicSelection from "../components/HeuristicSelection";
+import { BsFillPatchQuestionFill as GuideIcon } from "react-icons/bs";
+
 function Intro() {
   const { isPuzzleFull } = useContext(PuzzleContext);
   const navigate = useNavigate();
@@ -12,7 +14,15 @@ function Intro() {
   }
   return (
     <>
-      <h2 className="p-[1rem] mb-[1rem] mt-[3rem] text-center text-[2.4rem]">
+      <div className="flex justify-end mt-[3rem] mb-[1rem]">
+        <button
+          className="flex w-[40px] h-[40px]"
+          onClick={() => navigate("/guidance")}
+        >
+          <GuideIcon className="w-full h-full fill-secondary" />
+        </button>
+      </div>
+      <h2 className="p-[1rem] mb-[1rem]  text-center text-[2.4rem]">
         Please fill in the puzzle with numbers 0 to 8
       </h2>
       <div className="table w-[80%] max-w-[30rem] mx-auto">

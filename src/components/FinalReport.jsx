@@ -19,7 +19,7 @@ function FinalReport({ finalState, currentState, hId }) {
     <>
       {isSolved ? (
         <div className="mb-[3rem]">
-          <p className="mb-[3rem]">Congrats! you solve the problem</p>
+          <p className="mb-[3rem]">Congrats! you solved the problem.</p>
           <div className="table w-[80%] max-w-[30rem] mx-auto">
             <PuzzelState
               puzzleNums={finalState}
@@ -31,8 +31,8 @@ function FinalReport({ finalState, currentState, hId }) {
       ) : (
         <div className="mb-[3rem]">
           <p className="mb-[3rem]">
-            All neighbor state have lower heuristic value than the last current
-            state. So we consider this state as the local result.
+            All neighbor states doesn't have lower heuristic value than the last
+            current state. So we consider this state as the local answer.
           </p>
           <div className="table w-[80%] max-w-[30rem] mx-auto">
             <PuzzelState

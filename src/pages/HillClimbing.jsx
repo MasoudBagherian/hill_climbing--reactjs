@@ -29,7 +29,7 @@ function HillClimbing() {
   return (
     <div className="mt-[3rem]">
       <button
-        className="bg-primary mb-[3rem] text-white py-[6px] px-[8px] rounded-[100px]"
+        className="bg-primary mb-[3rem] text-white py-[6px] px-[8px] rounded-[5px]"
         onClick={reset}
       >
         reset
@@ -43,8 +43,8 @@ function HillClimbing() {
       </div>
       {isEnded ? (
         <div>
-          <p className="text-center text-[2rem]">
-            This state is the global answer so there is nothing to do:)))
+          <p className="text-center text-[2rem] my-[2rem]">
+            This state is the goal state so there is nothing to do:)))
           </p>
         </div>
       ) : (
