@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import HillClimbingStep from "../components/HillClimbingStep";
 import NeighborList from "../components/NeighborList";
 import NextState from "../components/NextState";
 import PuzzleState from "../components/PuzzleState";
@@ -39,8 +40,8 @@ function HillClimbing() {
         />
       </div>
       {/* beginning of loop?? */}
-
-      <ButtonPrimary
+      <HillClimbingStep nums={nums} heuristicId={heuristicId} />
+      {/* <ButtonPrimary
         text={isShowNeighbors ? "neighbors list" : "create neighbors"}
         handleClick={() => setIsShowNeighbors(true)}
       />
@@ -48,7 +49,9 @@ function HillClimbing() {
       {isShowNeighbors ? <NeighborList neighbors={mkNeighbors(nums)} /> : null}
       {isShowNeighbors ? (
         <ButtonPrimary
-          text="show the best neighbor"
+          text={
+            isShowNextState ? "the best neighbor" : "show the best neighbor"
+          }
           handleClick={() => setIsShowNextState(true)}
         />
       ) : null}
@@ -57,7 +60,7 @@ function HillClimbing() {
           nums={getTheNextState(nums, heuristicId)}
           hId={heuristicId}
         />
-      ) : null}
+      ) : null} */}
       {/* ending of loop?? */}
     </div>
   );
