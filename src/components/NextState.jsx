@@ -7,13 +7,13 @@ import FinalReport from "./FinalReport";
 import HillClimbingStep from "./HillClimbingStep";
 import PuzzleState from "./PuzzleState";
 
-function NextState({ nums, currentState, hId }) {
-  const { setNums, heuristicId } = useContext(PuzzleContext);
+function NextState({ nextState, currentState, hId }) {
+  const { heuristicId } = useContext(PuzzleContext);
   const [isEnded, setIsEnded] = useState(false);
   const { heuristic, name } = findHeuristicById(hId);
   useEffect(() => {
     // heuristic of neighbors is not lower than current state(local optimal state)
-    if (nums.length === 0 || heuristic(nums) === 0) {
+    if (nextState.length === 0 || heuristic(nextState) === 0) {
       setIsEnded(true);
     }
   }, []);
@@ -21,17 +21,21 @@ function NextState({ nums, currentState, hId }) {
   return (
     <>
       {isEnded ? (
-        <FinalReport finalState={nums} currentState={currentState} hId={hId} />
+        <FinalReport
+          finalState={nextState}
+          currentState={currentState}
+          hId={hId}
+        />
       ) : (
         <>
           <div className="table w-[80%] max-w-[30rem] mx-auto">
             <PuzzleState
-              puzzleNums={nums}
+              puzzleNums={nextState}
               captionName={name}
-              captionValue={heuristic(nums)}
+              captionValue={heuristic(nextState)}
             />
           </div>
-          <HillClimbingStep nums={nums} heuristicId={heuristicId} />
+          <HillClimbingStep nums={nextState} heuristicId={heuristicId} />
         </>
       )}
     </>

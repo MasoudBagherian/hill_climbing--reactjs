@@ -11,7 +11,7 @@ function FinalReport({ finalState, currentState, hId }) {
       setIsSolved(false);
     }
     // we got the global answer
-    else if (heuristic(currentState) === 0) {
+    else if (heuristic(finalState) === 0) {
       setIsSolved(true);
     }
   }, []);
@@ -22,9 +22,9 @@ function FinalReport({ finalState, currentState, hId }) {
           <p className="mb-[3rem]">Congrats! you solve the problem</p>
           <div className="table w-[80%] max-w-[30rem] mx-auto">
             <PuzzelState
-              puzzleNums={currentState}
+              puzzleNums={finalState}
               captionName={name}
-              captionValue={heuristic(currentState)}
+              captionValue={heuristic(finalState)}
             />
           </div>
         </div>
