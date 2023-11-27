@@ -24,6 +24,7 @@ function HillClimbingStep({ nums, heuristicId }) {
       {isShowNextState ? (
         <NextState
           nums={getTheNextState(nums, heuristicId)}
+          currentState={nums}
           hId={heuristicId}
         />
       ) : null}

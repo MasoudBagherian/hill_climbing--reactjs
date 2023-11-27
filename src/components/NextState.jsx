@@ -3,15 +3,17 @@ import {
   findHeuristicById,
   PuzzleContext,
 } from "../contexts/puzzleContext/PuzzleContextProvider";
+import FinalReport from "./FinalReport";
 import HillClimbingStep from "./HillClimbingStep";
 import PuzzleState from "./PuzzleState";
 
-function NextState({ nums, hId }) {
+function NextState({ nums, currentState, hId }) {
   const { setNums, heuristicId } = useContext(PuzzleContext);
   const [isEnded, setIsEnded] = useState(false);
   const { heuristic, name } = findHeuristicById(hId);
   useEffect(() => {
-    if (nums.length === 0) {
+    // heuristic of neighbors is not lower than current state(local optimal state)
+    if (nums.length === 0 || heuristic(nums) === 0) {
       setIsEnded(true);
     }
   }, []);
@@ -19,7 +21,7 @@ function NextState({ nums, hId }) {
   return (
     <>
       {isEnded ? (
-        <p>problem solved</p>
+        <FinalReport finalState={nums} currentState={currentState} hId={hId} />
       ) : (
         <>
           <div className="table w-[80%] max-w-[30rem] mx-auto">
