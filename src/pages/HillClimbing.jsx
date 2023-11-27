@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import HillClimbingStep from "../components/HillClimbingStep";
 
@@ -12,13 +12,20 @@ function HillClimbing() {
   const navigate = useNavigate();
   const { nums, resetNums, setHeuristicId, heuristicId } =
     useContext(PuzzleContext);
+  const [isEnded, setIsEnded] = useState(false);
   const { name, heuristic } = findHeuristicById(heuristicId);
   function reset() {
     resetNums();
     setHeuristicId(1);
     navigate("/");
   }
-  useEffect(() => {}, [nums]);
+  useEffect(() => {
+    if (heuristic(nums) === 0) {
+      setIsEnded(true);
+    } else {
+      setIsEnded(false);
+    }
+  }, []);
   return (
     <div className="mt-[3rem]">
       <button
@@ -34,7 +41,15 @@ function HillClimbing() {
           captionValue={heuristic(nums)}
         />
       </div>
-      <HillClimbingStep nums={nums} heuristicId={heuristicId} />
+      {isEnded ? (
+        <div>
+          <p className="text-center text-[2rem]">
+            This state is the global answer so there is nothing to do:)))
+          </p>
+        </div>
+      ) : (
+        <HillClimbingStep nums={nums} heuristicId={heuristicId} />
+      )}
     </div>
   );
 }
