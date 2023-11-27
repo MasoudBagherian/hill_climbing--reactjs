@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    /* default 1rem = 10px */
+    @apply text-[62.5%];
+    @apply bg-gray-200;
+  }
+  body {
+    /* default font-size = 16px */
+    @apply text-[1.6rem];
+  }
+}
