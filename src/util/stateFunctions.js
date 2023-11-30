@@ -1,5 +1,5 @@
-import { findHeuristicById } from "../contexts/puzzleContext/PuzzleContextProvider";
 import { findPosition } from "./global";
+import { findHeuristicById } from "../contexts/puzzleContext/PuzzleContextProvider";
 
 function findEmptyCell(puzzle) {
   return findPosition(puzzle, 0);

@@ -1,14 +1,12 @@
 import { useContext, useEffect } from "react";
-import InputPuzzle from "../components/InputPuzzle";
-import { PuzzleContext } from "../contexts/puzzleContext/PuzzleContextProvider";
 import { useNavigate } from "react-router-dom";
+import InputPuzzle from "../components/InputPuzzle";
 import HeuristicSelection from "../components/HeuristicSelection";
 import { BsFillPatchQuestionFill as GuideIcon } from "react-icons/bs";
+import { PuzzleContext } from "../contexts/puzzleContext/PuzzleContextProvider";
 
 function Intro() {
-  const { nums, resetNums, setHeuristicId, isPuzzleFull } =
-    useContext(PuzzleContext);
-  // console.log({ nums });
+  const { resetNums, setHeuristicId, isPuzzleFull } = useContext(PuzzleContext);
   const navigate = useNavigate();
   function clickToStart(e) {
     e.preventDefault();
@@ -17,7 +15,6 @@ function Intro() {
   useEffect(() => {
     resetNums();
     setHeuristicId(1);
-    console.log("intro mounted");
   }, []);
   return (
     <>

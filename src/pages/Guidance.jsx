@@ -1,15 +1,12 @@
-import React from "react";
 import Puzzle from "../components/Puzzle";
-import { FaHome as HomeIcon } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { FaHome as HomeIcon } from "react-icons/fa";
 import { hInfo } from "../contexts/puzzleContext/PuzzleContextProvider";
 
 function Guidance() {
   const navigate = useNavigate();
   return (
     <>
-      {/* <div className="flex justify-end mt-[3rem] mb-[1rem]">
-      </div> */}
       <div className="flex justify-between items-center">
         <h1 className="my-[2rem] text-[2rem] mr-[2rem]">8-puzzle problem</h1>
         <button

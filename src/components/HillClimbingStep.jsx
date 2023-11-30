@@ -1,8 +1,8 @@
 import { useState } from "react";
+import NextState from "./NextState";
+import NeighborList from "./NeighborList";
 import ButtonPrimary from "../ui/ButtonPrimary";
 import { getTheNextState, mkNeighbors } from "../util/stateFunctions";
-import NeighborList from "./NeighborList";
-import NextState from "./NextState";
 
 function HillClimbingStep({ nums, heuristicId }) {
   const [isShowNeighbors, setIsShowNeighbors] = useState(false);

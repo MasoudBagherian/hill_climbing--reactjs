@@ -1,5 +1,5 @@
-import { createContext, useState } from "react";
 import { h1, h2 } from "../../util/heuristics";
+import { createContext, useState } from "react";
 
 export const PuzzleContext = createContext({
   nums: [],

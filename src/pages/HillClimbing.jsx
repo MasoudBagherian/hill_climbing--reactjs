@@ -1,12 +1,11 @@
-import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import HillClimbingStep from "../components/HillClimbingStep";
-
 import PuzzleState from "../components/PuzzleState";
+import { useContext, useEffect, useState } from "react";
 import {
   findHeuristicById,
   PuzzleContext,
 } from "../contexts/puzzleContext/PuzzleContextProvider";
+import HillClimbingStep from "../components/HillClimbingStep";
 
 function HillClimbing() {
   const navigate = useNavigate();

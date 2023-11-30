@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { findHeuristicById } from "../contexts/puzzleContext/PuzzleContextProvider";
 import PuzzelState from "./PuzzleState";
+import { useEffect, useState } from "react";
+import { findHeuristicById } from "../contexts/puzzleContext/PuzzleContextProvider";
 
 function FinalReport({ finalState, currentState, hId }) {
   const { heuristic, name } = findHeuristicById(hId);

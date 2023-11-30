@@ -1,11 +1,11 @@
+import FinalReport from "./FinalReport";
+import PuzzleState from "./PuzzleState";
+import HillClimbingStep from "./HillClimbingStep";
 import { useContext, useEffect, useState } from "react";
 import {
   findHeuristicById,
   PuzzleContext,
 } from "../contexts/puzzleContext/PuzzleContextProvider";
-import FinalReport from "./FinalReport";
-import HillClimbingStep from "./HillClimbingStep";
-import PuzzleState from "./PuzzleState";
 
 function NextState({ nextState, currentState, hId }) {
   const { heuristicId } = useContext(PuzzleContext);

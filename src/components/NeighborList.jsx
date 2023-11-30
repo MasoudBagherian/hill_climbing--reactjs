@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
+import PuzzleState from "./PuzzleState";
 import {
   findHeuristicById,
   PuzzleContext,
 } from "../contexts/puzzleContext/PuzzleContextProvider";
-import PuzzleState from "./PuzzleState";
 
 function NeighborList({ neighbors }) {
   const { heuristicId } = useContext(PuzzleContext);

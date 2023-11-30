@@ -1,18 +1,14 @@
 import { useState, useEffect, useContext } from "react";
-// import { motion } from "framer-motion";
 import { PuzzleContext } from "../contexts/puzzleContext/PuzzleContextProvider";
 
 function InputCell({ index }) {
   const { nums, addNum, deleteNum } = useContext(PuzzleContext);
   const [inputNum, setInputNum] = useState("");
-  console.log({ inputNum });
-  console.log({ nums });
   const [err, setErr] = useState(null);
   function handleChange(e) {
     const re = /^[0-8]{1}$/;
     const value = e.target.value;
     const length = value.length;
-    // console.log({ value, length });
     if (length === 1) {
       if (!re.test(value)) {
         setInputNum("");

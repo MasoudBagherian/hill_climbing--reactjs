@@ -1,10 +1,9 @@
-import { useContext, useEffect } from "react";
-import { PuzzleContext } from "../contexts/puzzleContext/PuzzleContextProvider";
+import { useContext } from "react";
 import InputCell from "./InputCell";
+import { PuzzleContext } from "../contexts/puzzleContext/PuzzleContextProvider";
 
 function InputPuzzle() {
   const { nums } = useContext(PuzzleContext);
-  // console.log({ nums });
   const rows = [nums.slice(0, 3), nums.slice(3, 6), nums.slice(6, 9)];
 
   return (
