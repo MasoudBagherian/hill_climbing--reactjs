@@ -1,5 +1,4 @@
 import { findPosition, goalState } from "./global";
-import { getTheBestNeighbor } from "./stateFunctions";
 
 /**
  * return number of cells that are not in the right position

@@ -25,7 +25,7 @@ export const hInfo = [
     title: "h2 function",
     name: "h2",
     description:
-      'The sum of the distances of each cell from it\'s correct position ("Manhattan distance").',
+      "The sum of the distances of each cell from it's correct position (Manhattan distance).",
   },
 ];
 export function findHeuristicById(id) {

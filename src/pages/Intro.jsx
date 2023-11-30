@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import InputPuzzle from "../components/InputPuzzle";
 import { PuzzleContext } from "../contexts/puzzleContext/PuzzleContextProvider";
 import { useNavigate } from "react-router-dom";
@@ -6,12 +6,19 @@ import HeuristicSelection from "../components/HeuristicSelection";
 import { BsFillPatchQuestionFill as GuideIcon } from "react-icons/bs";
 
 function Intro() {
-  const { isPuzzleFull } = useContext(PuzzleContext);
+  const { nums, resetNums, setHeuristicId, isPuzzleFull } =
+    useContext(PuzzleContext);
+  // console.log({ nums });
   const navigate = useNavigate();
   function clickToStart(e) {
     e.preventDefault();
     navigate("/hill-climbing");
   }
+  useEffect(() => {
+    resetNums();
+    setHeuristicId(1);
+    console.log("intro mounted");
+  }, []);
   return (
     <>
       <div className="flex justify-end mt-[3rem] mb-[1rem]">

@@ -4,7 +4,9 @@ import { PuzzleContext } from "../contexts/puzzleContext/PuzzleContextProvider";
 
 function InputCell({ index }) {
   const { nums, addNum, deleteNum } = useContext(PuzzleContext);
-  const [inputNum, setInputNum] = useState(nums[index] || "");
+  const [inputNum, setInputNum] = useState("");
+  console.log({ inputNum });
+  console.log({ nums });
   const [err, setErr] = useState(null);
   function handleChange(e) {
     const re = /^[0-8]{1}$/;

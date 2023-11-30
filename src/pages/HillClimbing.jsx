@@ -10,7 +10,7 @@ import {
 
 function HillClimbing() {
   const navigate = useNavigate();
-  const { nums, resetNums, setHeuristicId, heuristicId } =
+  const { nums, resetNums, setHeuristicId, heuristicId, isPuzzleFull } =
     useContext(PuzzleContext);
   const [isEnded, setIsEnded] = useState(false);
   const { name, heuristic } = findHeuristicById(heuristicId);
@@ -24,6 +24,11 @@ function HillClimbing() {
       setIsEnded(true);
     } else {
       setIsEnded(false);
+    }
+  }, []);
+  useEffect(() => {
+    if (!isPuzzleFull()) {
+      navigate("/");
     }
   }, []);
   return (
